@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="hu.adikaindustries.navigationComonentExample.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            android:id="@+id/action_mainFragment_to_chooseRecipiantFragment"
+            app:destination="@id/chooseRecipiantFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"
+            />
+        <action
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            android:id="@+id/action_mainFragment_to_viewTransactionFragment"
+            app:destination="@id/viewTransactionFragment" />
+        <action
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            android:id="@+id/action_mainFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment" />
+        <action
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            android:id="@+id/action_mainFragment_to_amountFragment"
+            app:destination="@id/amountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseRecipiantFragment"
+        android:name="hu.adikaindustries.navigationComonentExample.ChooseRecipiantFragment"
+        android:label="fragment_choose_recipiant"
+        tools:layout="@layout/fragment_choose_recipiant" >
+
+        <action
+            android:id="@+id/action_chooseRecipiantFragment_to_amountFragment2"
+            app:destination="@id/amountFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/amountFragment"
+        android:name="hu.adikaindustries.navigationComonentExample.AmountFragment"
+        android:label="fragment_amount"
+        tools:layout="@layout/fragment_amount" >
+        <argument android:name="recipient"
+            android:defaultValue="None"/>
+        <action
+            android:id="@+id/action_amountFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="hu.adikaindustries.navigationComonentExample.ConfirmationFragment"
+        android:label="fragment_confirmation"
+        tools:layout="@layout/fragment_confirmation">
+        <argument android:name="recipient"
+            android:defaultValue="None"/>
+        <argument android:name="amount"
+            app:argType="hu.adikaindustries.navigationComonentExample.money"/>
+    </fragment>
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="hu.adikaindustries.navigationComonentExample.ViewBalanceFragment"
+        android:label="fragment_view_balance"
+        tools:layout="@layout/fragment_view_balance" />
+    <fragment
+        android:id="@+id/viewTransactionFragment"
+        android:name="hu.adikaindustries.navigationComonentExample.ViewTransactionFragment"
+        android:label="fragment_view_transaction"
+        tools:layout="@layout/fragment_view_transaction" />
+</navigation>
